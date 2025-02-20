@@ -12,7 +12,19 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <archetype.encoding>${encoding}</archetype.encoding>
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:platar/signal.git</connection>
+        <developerConnection>scm:git:git@github.com:platar/signal.git</developerConnection>
+        <url>https://github.com/platar/signal</url>
+        <tag>1.0</tag>
+    </scm>
 
     <modules>
         <module>common</module>
@@ -21,5 +33,23 @@
         <module>web</module>
         <module>batch</module>
     </modules>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <goals>pre-integration-test</goals>
+                    <preparationGoals>package</preparationGoals>
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <remoteTagging>false</remoteTagging>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
