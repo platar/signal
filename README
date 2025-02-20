@@ -1,0 +1,6 @@
+C:\edu\java\test\signal\web\target
+
+java -cp web\target\web-1.0-SNAPSHOT.jar com.oti.web.Web
+
+
+java -cp batch\target\batch-1.0-SNAPSHOT.jar com.oti.server.main.ServerMain
